@@ -1,0 +1,7 @@
+## Interface: 11200
+## Title: Druid Talent Guide
+## Notes: Guide for druid talent upgrades (Feral)
+## Author: rmarc29 (aka TNS)
+## Version: 0.0.1
+
+DruidTalentGuide.lua
