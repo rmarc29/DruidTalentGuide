@@ -10,6 +10,7 @@ Based on wowhead's hardcore druid feral spec guide : https://www.wowhead.com/cla
 I'll try to create all the other classes guides soon enough, I'll link everything down here :
 - [Hunter Guide](https://github.com/rmarc29/HunterTalentGuide)
 - [Warrior Guide](https://github.com/rmarc29/WarriorTalentGuide)
+- [Warlock Guide](https://github.com/rmarc29/WarlockTalentGuide) 
 
 At the end my project is to try to create a single AddOn that will track which class you play so you won't have to constantly switch between them.
 
