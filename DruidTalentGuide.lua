@@ -1,8 +1,8 @@
-local WarriorTalentGuide = CreateFrame("Frame", "WarriorTalentGuide", UIParent)
-WarriorTalentGuide:SetWidth(220)  
-WarriorTalentGuide:SetHeight(160)
-WarriorTalentGuide:SetPoint("CENTER", UIParent, "CENTER", 0, 0)
-WarriorTalentGuide:SetBackdrop({
+local DruidTalentGuide = CreateFrame("Frame", "DruidTalentGuide", UIParent)
+DruidTalentGuide:SetWidth(220)  
+DruidTalentGuide:SetHeight(160)
+DruidTalentGuide:SetPoint("CENTER", UIParent, "CENTER", 0, 0)
+DruidTalentGuide:SetBackdrop({
     bgFile = "Interface/Tooltips/UI-Tooltip-Background",  
     edgeFile = "Interface/Tooltips/UI-Tooltip-Border",    
     tile = true,                                         
@@ -10,13 +10,13 @@ WarriorTalentGuide:SetBackdrop({
     edgeSize = 16,                                       
     insets = { left = 4, right = 4, top = 4, bottom = 4 } 
 })
-WarriorTalentGuide:SetBackdropColor(0, 0, 0, 0.8)
-WarriorTalentGuide:SetBackdropBorderColor(1, 1, 1, 1)  
-WarriorTalentGuide:EnableMouse(true)
-WarriorTalentGuide:SetMovable(true)
-WarriorTalentGuide:RegisterForDrag("LeftButton")
-WarriorTalentGuide:SetScript("OnDragStart", function() WarriorTalentGuide:StartMoving() end)
-WarriorTalentGuide:SetScript("OnDragStop", function() WarriorTalentGuide:StopMovingOrSizing() end)
+DruidTalentGuide:SetBackdropColor(0, 0, 0, 0.8)
+DruidTalentGuide:SetBackdropBorderColor(1, 1, 1, 1)  
+DruidTalentGuide:EnableMouse(true)
+DruidTalentGuide:SetMovable(true)
+DruidTalentGuide:RegisterForDrag("LeftButton")
+DruidTalentGuide:SetScript("OnDragStart", function() DruidTalentGuide:StartMoving() end)
+DruidTalentGuide:SetScript("OnDragStop", function() DruidTalentGuide:StopMovingOrSizing() end)
 
 -- Sample talent order (Level -> {Talent Name, Icon Path})
 local talentOrder = {
@@ -83,11 +83,11 @@ local function UpdateTalentDisplay()
         if talentInfo then
             local talentName, iconPath = unpack(talentInfo)
             
-            if not WarriorTalentGuide["Talent" .. i] then
-                local talentFrame = CreateFrame("Frame", nil, WarriorTalentGuide)
+            if not DruidTalentGuide["Talent" .. i] then
+                local talentFrame = CreateFrame("Frame", nil, DruidTalentGuide)
                 talentFrame:SetWidth(190)
                 talentFrame:SetHeight(30)
-                talentFrame:SetPoint("TOP", WarriorTalentGuide, "TOP", 0, -((i - 1) * 35))
+                talentFrame:SetPoint("TOP", DruidTalentGuide, "TOP", 0, -((i - 1) * 35))
 
                 local levelText = talentFrame:CreateFontString(nil, "OVERLAY", "GameFontNormal")
                 levelText:SetPoint("LEFT", talentFrame, "LEFT", 0, -20)
@@ -108,9 +108,9 @@ local function UpdateTalentDisplay()
                 talentFrame.levelText = levelText
                 talentFrame.icon = icon
                 talentFrame.text = text
-                WarriorTalentGuide["Talent" .. i] = talentFrame
+                DruidTalentGuide["Talent" .. i] = talentFrame
             else
-                local talentFrame = WarriorTalentGuide["Talent" .. i]
+                local talentFrame = DruidTalentGuide["Talent" .. i]
                 talentFrame.levelText:SetText("lvl " .. talentLevel .. " :")
                 talentFrame.icon:SetTexture(iconPath)
                 talentFrame.text:SetText(talentName)
@@ -120,9 +120,9 @@ local function UpdateTalentDisplay()
 end
 
 -- Event handling for level-up updates
-WarriorTalentGuide:RegisterEvent("PLAYER_LEVEL_UP")
-WarriorTalentGuide:RegisterEvent("PLAYER_ENTERING_WORLD")
-WarriorTalentGuide:SetScript("OnEvent", function(self, event, ...) 
+DruidTalentGuide:RegisterEvent("PLAYER_LEVEL_UP")
+DruidTalentGuide:RegisterEvent("PLAYER_ENTERING_WORLD")
+DruidTalentGuide:SetScript("OnEvent", function(self, event, ...) 
     UpdateTalentDisplay()
     if event == "PLAYER_LEVEL_UP" or event == "PLAYER_ENTERING_WORLD" then
         UpdateTalentDisplay()
