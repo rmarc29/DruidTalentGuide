@@ -1,4 +1,4 @@
-# DruidTalentGuide
+# DruidTalentGuide - DEPRECATED !!! Use [Unified-Talent-Guides](https://github.com/rmarc29/Unified-Talent-Guides)
 ## Info
 This is an AddOn for World of Warcraft Vanilla (v.1.12), that will show druid players what talent to choose.
 Based on wowhead's hardcore druid feral spec guide : https://www.wowhead.com/classic/guide/classes/druid/hardcore-leveling-tips
